@@ -1,0 +1,61 @@
+plugins {
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
+}
+
+android {
+    compileSdkVersion(ConfigData.COMPILE_SDK_VERSION)
+
+    defaultConfig {
+        applicationId = ConfigData.APPLICATION_ID
+        minSdkVersion(ConfigData.MIN_SDK_VERSION)
+        targetSdkVersion(ConfigData.TARGET_SDK_VERSION)
+        versionCode = ConfigData.VERSION_CODE
+        versionName = ConfigData.VERSION_NAME
+
+        testInstrumentationRunner = Dependecies.ANDROID_JUNIT_RUNNER
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        getByName("release") {
+            minifyEnabled = false
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+        }
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = ConfigData.TARGET_JVM_VERSION
+    }
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = Versions.COMPOSE_VERSION
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+    implementation(Dependecies.ANDROID_X_CORE)
+    implementation(Dependecies.COMPOSE_UI)
+    implementation(Dependecies.COMPOSE_MATERIAL)
+    implementation(Dependecies.COMPOSE_PREVIEW_TOOL)
+    implementation(Dependecies.COMPOSE_ACTIVITY)
+    implementation(Dependecies.LIFECYCLE_EXTENSION)
+    androidTestImplementation(Dependecies.JUNIT_EXT)
+    androidTestImplementation(Dependecies.ESPRESSO)
+    androidTestImplementation(Dependecies.COMPOSE_UI_JUNIT)
+    testImplementation(Dependecies.JUNIT)
+    debugImplementation(Dependecies.COMPOSE_TOOLING)
+    debugImplementation(Dependecies.COMPOSE_MANIFEST)
+}
