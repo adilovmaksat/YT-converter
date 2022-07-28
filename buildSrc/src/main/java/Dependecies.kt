@@ -25,5 +25,11 @@ object Dependecies {
             "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.LIFECYCLE_EXTENSION_VERSION}"
     }
 
+    object Architecture {
+        const val ORBIT_MVI_VIEWMODEL = "org.orbit-mvi:orbit-core:${Versions.ORBIT_MVI_VERSION}"
+        const val ORBIT_MVI_CORE = "org.orbit-mvi:orbit-viewmodel:${Versions.ORBIT_MVI_VERSION}"
+
+    }
+
 
 }

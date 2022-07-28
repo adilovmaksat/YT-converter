@@ -9,5 +9,6 @@ object Versions {
     const val JUNIT_VERSION = "4.13.2"
     const val JUNIT_EXTENSION_VERSION = "1.1.3"
     const val ESPRESSO_VERSION = "3.4.0"
+    const val ORBIT_MVI_VERSION = "4.3.2"
 
 }

@@ -9,4 +9,5 @@ object ConfigData {
     const val APPLICATION_ID = "adilovm.multline.yt_converter"
     const val PROGUARD_OPTIMIZE_FILE_PATH = "proguard-android-optimize.txt"
     const val PROGUARD_RULES_PATH = "proguard-rules.pro"
+    const val RELEASE_BUILD_TYPE = "release"
 }

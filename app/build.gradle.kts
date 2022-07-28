@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-    compileSdkVersion(ConfigData.COMPILE_SDK_VERSION)
+    compileSdk = ConfigData.COMPILE_SDK_VERSION
 
     defaultConfig {
         applicationId = ConfigData.APPLICATION_ID
-        minSdkVersion(ConfigData.MIN_SDK_VERSION)
-        targetSdkVersion(ConfigData.TARGET_SDK_VERSION)
+        minSdk = ConfigData.MIN_SDK_VERSION
+        targetSdk = ConfigData.TARGET_SDK_VERSION
         versionCode = ConfigData.VERSION_CODE
         versionName = ConfigData.VERSION_NAME
 
@@ -20,7 +20,7 @@ android {
     }
 
     buildTypes {
-        getByName("release") {
+        getByName(ConfigData.RELEASE_BUILD_TYPE) {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile(ConfigData.PROGUARD_OPTIMIZE_FILE_PATH), ConfigData.PROGUARD_RULES_PATH)
         }
@@ -53,6 +53,10 @@ dependencies {
     implementation(Dependecies.Compose.COMPOSE_ACTIVITY)
     debugImplementation(Dependecies.Compose.COMPOSE_TOOLING)
     debugImplementation(Dependecies.Compose.COMPOSE_MANIFEST)
+
+    //Architecture
+    implementation(Dependecies.Architecture.ORBIT_MVI_VIEWMODEL)
+    implementation(Dependecies.Architecture.ORBIT_MVI_CORE)
 
     //Android core
     implementation(Dependecies.AndroidCore.ANDROID_X_CORE)
